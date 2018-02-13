@@ -1,7 +1,7 @@
 'use strict';
 
 
-var hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600','1700', '1800','1900','2000'];
+var hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '1400', '1500', '1600','1700', '1800','1900', '2000'];
 
 var pikeStore = {
     location: '1st and Pike',
@@ -14,9 +14,10 @@ var pikeStore = {
     },
     cookiePerHour: function () {
         for (hourNumb = 0; hourNumb < hours.length; hourNumb++) {
-            var hourTot = (this.custPerHour * this.cookieAvg);
+            var hourTot = Math.ceil((this.custPerHour() * this.cookieAvg));
             this.totPerHour.push(hourTot);            
         }
+        console.log(this);
     }
 }
  
