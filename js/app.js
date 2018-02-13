@@ -13,12 +13,32 @@ var pikeStore = {
         return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust; //The maximum is inclusive and the minimum is inclusive 
     },
     cookiePerHour: function () {
-        for (hourNumb = 0; hourNumb < hours.length; hourNumb++) {
+        
+        for (var hourNumb = 0; hourNumb < hours.length; hourNumb++) {
             var hourTot = Math.ceil((this.custPerHour() * this.cookieAvg));
             this.totPerHour.push(hourTot);            
         }
-        console.log(this);
+        // console.log(this);
+    },
+    render: function() {
+        var pikeList = document.getElementById('pike');
+        
+        for (var i = 0; i < hours.length; i++) {
+          // create an element
+          var newLi = document.createElement('li');
+          // give it content
+          newLi.textContent = hours[i] + ': ' + this.totPerHour[i];
+          // append it to the DOM
+          // parent.appendChild(child)
+          pikeList.appendChild(newLi);
+        }
     }
-}
+    
+};
+
+pikeStore.cookiePerHour();
+pikeStore.render();
+
+
  
 
