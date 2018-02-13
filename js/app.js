@@ -18,10 +18,12 @@ var pikeStore = {
             var hourTot = Math.ceil((this.custPerHour() * this.cookieAvg));
             this.totPerHour.push(hourTot);            
         }
-        // console.log(this);
+        console.log(this);
     },
     render: function() {
         var pikeList = document.getElementById('pike');
+        this.custPerHour();
+        this.cookiePerHour();
         
         for (var i = 0; i < hours.length; i++) {
           // create an element
@@ -36,8 +38,43 @@ var pikeStore = {
     
 };
 
-pikeStore.cookiePerHour();
+var seaTacStore = {
+    location: '1st and Pike',
+    minCust: 3,
+    maxCust: 24,
+    cookieAvg: 1.2,
+    totPerHour:[],
+    custPerHour: function () {
+        return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust; //The maximum is inclusive and the minimum is inclusive 
+    },
+    cookiePerHour: function () {
+        
+        for (var hourNumb = 0; hourNumb < hours.length; hourNumb++) {
+            var hourTot = Math.ceil((this.custPerHour() * this.cookieAvg));
+            this.totPerHour.push(hourTot);            
+        }
+        console.log(this);
+    },
+    render: function() {
+        var seaTacList = document.getElementById('seaTac');
+        this.custPerHour();
+        this.cookiePerHour();
+        
+        for (var i = 0; i < hours.length; i++) {
+          // create an element
+          var newLi = document.createElement('li');
+          // give it content
+          newLi.textContent = hours[i] + ': ' + this.totPerHour[i];
+          // append it to the DOM
+          // parent.appendChild(child)
+          seaTacList.appendChild(newLi);
+        }
+    }
+    
+};
+
 pikeStore.render();
+seaTacStore.render();
 
 
  
