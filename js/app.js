@@ -5,6 +5,7 @@ var hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '14
 var stores = [];
 var totPerDay = [];
 var cookieSales = document.getElementById('cookieSales');
+var totalSum = 0
 
 function makeHeader() {
         // create tr
@@ -29,6 +30,33 @@ function makeHeader() {
     thEl.textContent = 'Daily Totals'
     trEl.appendChild(thEl);
 };    
+function makeTotalRow(){
+    var trEl = document.createElement('tr');
+    cookieSales.appendChild(trEl);
+    var tdEl = document.createElement('td')
+    tdEl.textContent = 'Totals'
+    trEl.appendChild(tdEl);
+    for (var i = 0; i < hours.length; i++){
+        var total = 0
+        for (var j = 0; j < stores.length; j++){
+        total += stores[j].totPerHour[i]
+        }
+        var tdEl = document.createElement('td')
+        tdEl.textContent = total
+        trEl.appendChild(tdEl);
+        
+    }
+    for (var k = 0; k < stores.length; k++){
+        
+        totalSum = totalSum + stores[k].totalCookiesSoldPerDay
+        console.log(stores[k].totalCookiesSoldPerDay)
+        console.log(totalSum)
+        
+    }
+    var tdEl = document.createElement('td')
+    tdEl.textContent = totalSum
+    trEl.appendChild(tdEl);
+};
 
 //functions are above this and constructor is below this
 
@@ -82,11 +110,7 @@ Store.prototype.render = function() {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.totalCookiesSoldPerDay;
     trEl.appendChild(tdEl);
-       
-
-
-
-  
+        
 };
 
 makeHeader();
@@ -96,6 +120,7 @@ new Store('Seatac Airport', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 2.3);
 new Store('Capitol Hill', 20, 38, 2.3);
 new Store('Alki', 2, 16, 4.6);
+makeTotalRow();
 
         
         
