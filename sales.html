@@ -9,9 +9,29 @@
     
 </head>
 <body>
-    <h1>Sales</h1>
+    <h1>Pat's Salmon Cookie Sales</h1>
+    <form id = "newStore">
+        <fieldset>
+            <legend>New Store Submision Form</legend>
+            <label for = "location">Locaton:</label>
+            <input name = "location" type = "text" size = "40"/>
+
+            <label for = "min">Minimum Customer Per Hour:</label>
+            <input name = "min" type = "text" size = "10"/>
+
+            <label for = "max">Maximum Customer Per Hour:</label>
+            <input name = "max" type = "text" size = "10"/>
+
+            <label for = "avg">Average Cookie Per Sale:</label>
+            <input name = "avg" type = "text" size = "10"/>
+            <button type = "submit">"Add Store"</button>
+        </fieldset>
+    </form>
+    
+    
     <table id = "cookieSales"></table>
     
+
     <script src="js/app.js"></script>
 </body>
 </html>
