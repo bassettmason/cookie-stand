@@ -6,6 +6,8 @@ var stores = [];
 var totPerDay = [];
 var cookieSales = document.getElementById('cookieSales');
 var totalSum = 0
+var newStore = document.getElementById('newStore');
+var submit = document.getElementById('submit');
 
 function makeHeader() {
         // create tr
@@ -57,6 +59,7 @@ function makeTotalRow(){
     tdEl.textContent = totalSum
     trEl.appendChild(tdEl);
 };
+
 
 //functions are above this and constructor is below this
 
@@ -121,6 +124,24 @@ new Store('Seattle Center', 11, 38, 2.3);
 new Store('Capitol Hill', 20, 38, 2.3);
 new Store('Alki', 2, 16, 4.6);
 makeTotalRow();
+function handleAddStore (event){
+
+
+    event.preventDefault();
+    console.log(event);
+    
+    var location = event.target.location.value;
+    var min = parseInt(event.target.min.value);
+    var max = parseInt(event.target.max.value);
+    var avg = parseFloat(event.target.avg.value);
+    console.log(min, max, avg);
+ 
+    new Store (location, min, max, avg);
+    
+    makeTotalRow();  
+}
+
+newStore.addEventListener('submit', handleAddStore);
 
         
         
