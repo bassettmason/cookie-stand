@@ -34,6 +34,7 @@ function makeHeader() {
 };    
 function makeTotalRow(){
     var trEl = document.createElement('tr');
+    trEl.setAttribute("id","table")
     cookieSales.appendChild(trEl);
     var tdEl = document.createElement('td')
     tdEl.textContent = 'Totals'
@@ -60,7 +61,24 @@ function makeTotalRow(){
     trEl.appendChild(tdEl);
 };
 
+// function render(){
+//     cookieSales.textContent = ''
+//     for (var i = 0; i < stores.length; i++)
+//         var trEl = document.createElement('tr');
+//         cookieSales.appendChild(trEl);
+//         var tdEl = document.createElement('td');
+//         tdEl.textContent = stores[i].location;
+//         trEl.appendChild(tdEl);
+//         for (var i = 0; i < hours.length; i++) {
+//             var tdEl = document.createElement('td');
+//             tdEl.textContent = stores[i].totPerHour[i];
+//             trEl.appendChild(tdEl);
+//         }
+//         var tdEl = document.createElement('td');
+//         tdEl.textContent = stores[i].totalCookiesSoldPerDay;
+//         trEl.appendChild(tdEl);
 
+// }
 //functions are above this and constructor is below this
 
 //object constructor that pushes to global stores array
@@ -123,7 +141,8 @@ new Store('Seatac Airport', 3, 24, 1.2);
 new Store('Seattle Center', 11, 38, 2.3);
 new Store('Capitol Hill', 20, 38, 2.3);
 new Store('Alki', 2, 16, 4.6);
-makeTotalRow();
+// render();
+
 function handleAddStore (event){
 
 
@@ -137,13 +156,14 @@ function handleAddStore (event){
     console.log(min, max, avg);
  
     new Store (location, min, max, avg);
-    
-    makeTotalRow();  
+    document.getElementById('table').remove();
+      
+    makeTotalRow(); 
 }
 
 newStore.addEventListener('submit', handleAddStore);
 
-        
+makeTotalRow();        
         
     
     
