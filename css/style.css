@@ -1,0 +1,106 @@
+
+* {
+    font-family: Helvetica, sans-serif;
+  }
+  #newStore{
+      color: black;
+      background-color: grey;
+  }
+  header,
+  footer {
+    background: green;
+    height: 100px;
+  }
+
+  #logo {
+      width: 200px;
+  }
+  #family {
+      width: 480px;
+  }
+  #hero {
+      width: 960px;
+  }
+  nav {
+    /* border: 3px dashed orange; */
+    width: 960px;
+    margin: 0px auto;
+  }
+  
+  header img {
+    float: left;
+    margin-top: 15px;
+    margin-right: 60px;
+  }
+
+  th {
+      background-color: green;
+
+  }
+  nav li {
+    display: inline-block;
+    margin-top: 40px;
+    margin-right: 75px;
+    color: black;
+  }
+  main li {
+      width: 300px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #888;
+  }
+   main ul {
+      columns: 3;
+      column-gap: 30px;
+      
+  }
+  li {
+      list-style: none;
+  
+  }
+  #mainList {
+      padding-left: 0px;
+  }
+  div {
+      float:right;
+      height: 300px;
+      width:45%; 
+      padding:3px; 
+      
+  }
+  button {
+      font-size: 20px;
+      background-color: black;
+      color: white;
+  }
+  h2 {
+      margin: 0px;
+      font-size: 16px;
+  }
+  h1 {
+      text-align: center;
+      font-size: 45px;
+      color: white;
+  }
+  nav ul {
+
+      float: right;
+      color: black;
+  }
+  p {
+      height:250px;
+      overflow:auto;
+      background:#fff;
+      margin: 0px;
+  
+  }
+  
+  main {
+    width: 960px;
+    margin: 30px auto;
+  }
+  footer {
+      width: 100
+  }
